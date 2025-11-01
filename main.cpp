@@ -59,3 +59,14 @@ void output(const int *const* mtx, int r, int c){
         }
     }
 }
+int **convert(const int *t, size_t n, const size_t *lns, size_t rows){
+    int **res = make(rows, *lns);
+    size_t s=0, p=0;
+    while(s<n){
+        for(size_t i=0;i<lns[p];++i){
+            res[p][i] = t[s+i];
+        }
+        s+=lns[p++];
+    }
+    return res;
+}
