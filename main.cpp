@@ -1,8 +1,9 @@
 #include <iostream>
-int ** make(int r,int l);
+int **make(int r,int l);
 void output(const int *const* mtx, int r, int c);
-void rm(int **mtx, int r, int c);
+void rm(int **mtx, int r);
 void input(int **mtx,int r, int c);
+int **convert(const int *t, size_t n, const size_t *lns, size_t rows);
 int main(){
     int rows=0;
     int cols=0;
@@ -31,8 +32,8 @@ void rm(int **mtx, int r){
   }
   delete[] mtx;
 }
-int ** make(int r, int c){
-    int ** mtx=new int*[r];
+int **make(int r, int c){
+    int **mtx=new int*[r];
     for(size_t i=0;i<r;++i){
         try{
             mtx[i]=new int[c];
